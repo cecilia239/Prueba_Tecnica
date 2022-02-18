@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/postFragment">
+    <fragment
+        android:id="@+id/postFragment"
+        android:name="com.example.pruebatecnica.features.post.ui.PostFragment"
+        android:label="fragment_post"
+        tools:layout="@layout/fragment_post" >
+        <action
+            android:id="@+id/action_postFragment_to_albumFragment"
+            app:destination="@id/albumFragment"
+            app:launchSingleTop="true"/>
+        <action
+            android:id="@+id/action_postFragment_to_commentsFragment"
+            app:destination="@id/commentsFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/postFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/albumFragment"
+        android:name="com.example.pruebatecnica.features.album.ui.AlbumFragment"
+        android:label="AlbumFragment"
+        tools:layout="@layout/fragment_album">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/commentsFragment"
+        android:name="com.example.pruebatecnica.features.comments.ui.CommentsFragment"
+        android:label="CommentsFragment"
+        tools:layout="@layout/fragment_comments">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
+
+</navigation>
